@@ -1,0 +1,215 @@
+body {
+  font-family: 'Inter', sans-serif;
+  background-image: radial-gradient(circle at top left, rgba(0, 255, 255, 0.1), transparent),
+                    radial-gradient(circle at bottom right, rgba(255, 0, 255, 0.1), transparent);
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glow {
+  box-shadow: 0 0 20px rgba(0, 119, 255, 0.5);
+}
+
+.depth {
+  transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
+  transition: transform 0.3s ease;
+}
+
+.depth:hover {
+  transform: perspective(1000px) rotateX(2deg) rotateY(-4deg) scale(1.03);
+}
+
+#loader {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background-color: #111827;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 1s ease, transform 1s ease;
+  flex-direction: row;
+  gap: 0.3rem;
+  font-size: 2rem;
+  color: #3b82f6;
+  user-select: none;
+}
+
+#loader.fade-out {
+  opacity: 0;
+  transform: scale(1.05);
+  pointer-events: none;
+}
+
+#animated-text {
+  display: flex;
+  gap: 0.1em;
+}
+
+#animated-text span {
+  opacity: 0;
+  animation: shine 1s ease forwards;
+}
+
+#animated-text span:nth-child(1) { animation-delay: 0s; }
+#animated-text span:nth-child(2) { animation-delay: 0.1s; }
+#animated-text span:nth-child(3) { animation-delay: 0.2s; }
+#animated-text span:nth-child(4) { animation-delay: 0.3s; }
+#animated-text span:nth-child(5) { animation-delay: 0.4s; }
+#animated-text span:nth-child(6) { animation-delay: 0.5s; }
+#animated-text span:nth-child(7) { animation-delay: 0.6s; }
+#animated-text span:nth-child(8) { animation-delay: 0.7s; }
+#animated-text span:nth-child(9) { animation-delay: 0.8s; }
+#animated-text span:nth-child(10) { animation-delay: 0.9s; }
+#animated-text span:nth-child(11) { animation-delay: 1s; }
+#animated-text span:nth-child(12) { animation-delay: 1.1s; }
+#animated-text span:nth-child(13) { animation-delay: 1.2s; }
+#animated-text span:nth-child(14) { animation-delay: 1.3s; }
+#animated-text span:nth-child(15) { animation-delay: 1.4s; }
+#animated-text span:nth-child(16) { animation-delay: 1.5s; }
+#animated-text span:nth-child(17) { animation-delay: 1.6s; }
+#animated-text span:nth-child(18) { animation-delay: 1.7s; }
+#animated-text span:nth-child(19) { animation-delay: 1.8s; }
+#animated-text span:nth-child(20) { animation-delay: 1.9s; }
+
+.cursor {
+  color: #3b82f6;
+  animation: pulse 1.2s infinite;
+  font-weight: bold;
+  user-select: none;
+}
+
+@keyframes shine {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.particle {
+  position: absolute;
+  border-radius: 9999px;
+  opacity: 0.3;
+  animation: float 8s infinite ease-in-out;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0); }
+}
+
+body:not(.dark) .particle {
+  opacity: 0.6 !important;
+}
+
+body:not(.dark) .particle.bg-blue-400 {
+  background-color: #2563eb !important;
+}
+
+body:not(.dark) .particle.bg-purple-400 {
+  background-color: #7c3aed !important;
+}
+
+body:not(.dark) .particle.bg-pink-400 {
+  background-color: #db2777 !important;
+}
+
+#progress-bar {
+  position: fixed;
+  top: 0; left: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #3b82f6, #9333ea);
+  width: 0%;
+  z-index: 9999;
+  transition: width 0.25s ease;
+}
+
+header {
+  transition: padding 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background-color: rgba(255 255 255 / 0.7);
+  backdrop-filter: saturate(180%) blur(10px);
+}
+
+header.shrink {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  background-color: rgba(255 255 255 / 0.9);
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+}
+
+body.dark header {
+  background-color: rgba(31 41 55 / 0.7);
+  backdrop-filter: saturate(180%) blur(10px);
+}
+
+body.dark header.shrink {
+  background-color: rgba(31 41 55 / 0.9);
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.6);
+}
+
+#theme-toggle {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#theme-toggle svg {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  transition: opacity 0.5s ease;
+}
+
+
+/* Seu CSS existente permanece igual... */
+
+/* --- Novo CSS para os ícones sociais --- */
+.social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  border-radius: 9999px;
+  transition: transform 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  color: inherit;
+  filter: drop-shadow(0 0 2px rgba(59, 130, 246, 0.6)); /* leve sombra azul */
+}
+
+.social-icon:hover,
+.social-icon:focus {
+  transform: scale(1.2);
+  color: #60a5fa; /* azul mais claro no hover */
+  box-shadow: 0 0 10px #3b82f6;
+  outline: none;
+}
+
+/* Para melhorar a acessibilidade quando focado via teclado */
+.social-icon:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 4px;
+}
+
+/* Ajuste para o ícone feather dentro do link para tamanho e suavidade */
+.social-icon svg {
+  width: 2.5rem;
+  height: 2.5rem;
+  stroke-width: 1.5;
+  transition: stroke 0.3s ease;
+}
